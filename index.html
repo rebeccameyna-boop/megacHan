@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Boyfriend Day ❤️</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ffd6e7,#fff5f8,#ffc1d9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.card{
+  width:90%;
+  max-width:420px;
+  padding:25px 20px;
+  text-align:center;
+  background:rgba(255,255,255,.9);
+  border-radius:25px;
+  box-shadow:0 10px 35px rgba(0,0,0,.15);
+  position:relative;
+  z-index:5;
+}
+
+h1{
+  color:#d6336c;
+  margin:5px 0 10px;
+}
+
+.subtitle{
+  color:#777;
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+.photo{
+  width:220px;
+  height:220px;
+  object-fit:cover;
+  border-radius:50%;
+  border:6px solid white;
+  box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.message{
+  margin-top:18px;
+  color:#555;
+  line-height:1.7;
+  font-size:15px;
+}
+
+button{
+  margin-top:18px;
+  border:0;
+  padding:12px 24px;
+  border-radius:30px;
+  background:#e75480;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+}
+
+button:active{
+  transform:scale(.95);
+}
+
+/* LOVE */
+.love{
+  position:fixed;
+  top:-50px;
+  pointer-events:none;
+  z-index:10;
+  animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+  from{
+    transform:translateY(-50px) rotate(0deg);
+    opacity:1;
+  }
+
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <h1>Happy Boyfriend Day ❤️</h1>
+
+  <div class="subtitle">
+    Untuk seseorang yang spesial...
+  </div>
+
+  <img
+    src="foto.jpg"
+    class="photo"
+    alt="Foto kita"
+  >
+
+  <div class="message">
+    Terima kasih sudah menjadi bagian dari
+    cerita dan hari-hariku. ❤️
+    <br><br>
+
+    Semoga kita selalu bisa saling memahami,
+    menjaga, dan membuat banyak kenangan indah.
+    <br><br>
+
+    <b>You are someone special to me. 💗</b>
+  </div>
+
+  <button onclick="kejutan()">
+    💕 Buka Kejutan
+  </button>
+
+</div>
+
+<script>
+
+function kejutan(){
+
+  const hati = [
+    "❤️",
+    "💗",
+    "💖",
+    "💕",
+    "💞"
+  ];
+
+  for(let i = 0; i < 30; i++){
+
+    setTimeout(() => {
+
+      const love = document.createElement("div");
+
+      love.className = "love";
+
+      love.textContent =
+        hati[Math.floor(Math.random() * hati.length)];
+
+      love.style.left =
+        Math.random() * 100 + "vw";
+
+      love.style.fontSize =
+        (18 + Math.random() * 20) + "px";
+
+      love.style.animationDuration =
+        (3 + Math.random() * 2) + "s";
+
+      document.body.appendChild(love);
+
+      setTimeout(() => {
+        love.remove();
+      }, 5500);
+
+    }, i * 100);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
